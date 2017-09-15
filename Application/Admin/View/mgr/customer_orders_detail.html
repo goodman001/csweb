@@ -1,0 +1,243 @@
+<extend name="public/back" />
+<block name="siderbarmenu">
+<div class="page-sidebar nav-collapse collapse">
+    <ul class="page-sidebar-menu">
+    <li>
+        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+        <div class="sidebar-toggler hidden-phone"></div>
+        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+    </li>
+    <li>
+        <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+        <form class="sidebar-search">
+            <div class="input-box">
+                <a href="javascript:;" class="remove"></a>
+                <input type="text" placeholder="Search..."/>
+                <input type="button" class="submit" value=" "/>
+            </div>
+        </form>
+        <!-- END RESPONSIVE QUICK SEARCH FORM -->
+    </li>
+    <li class="start">
+        <a href="{:U('Profile/index');}">
+            <i class="icon-home"></i>
+            <span class="title">My Profile</span>
+            <span class="selected"></span>
+        </a>
+    </li>
+    <li class="active">
+        <a href="javascript:;">
+            <i class="icon-bookmark-empty"></i>
+            <span class="title">Customer Managerment</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="active">
+                <a href="{:U('Customer/customerlist');}">
+                    Customers List
+                </a>
+            </li>
+            <li>
+                <a href="{:U('Customer/customeradd');}">
+                    Add Customers</a>
+            </li>
+        </ul>
+    </li>
+    
+    </ul>
+</div>
+</block>
+<block name="container">
+<!-- BEGIN PAGE -->
+<div class="page-content">
+<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+<div id="portlet-config" class="modal hide">
+    <div class="modal-header">
+        <button data-dismiss="modal" class="close" type="button"></button>
+        <h3>portlet Settings</h3>
+    </div>
+    <div class="modal-body">
+        <p>Here will be a configuration form</p>
+    </div>
+</div>
+<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+<!-- BEGIN PAGE CONTAINER-->
+<div class="container-fluid">
+<!-- BEGIN PAGE HEADER-->
+<div class="row-fluid">
+    <div class="span12">
+        <h3 class="page-title">
+            Customer Managerment
+            <small> Customer Managerment</small>
+        </h3>
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home"></i>
+                <a href="{:U('Profile/index');}">Home</a>
+                <i class="icon-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Customer Managerment</a>
+                <i class="icon-angle-right"></i>
+            </li>
+            <li><a href="{:U('Customer/customerlist');}">Customers List</a><i class="icon-angle-right"></i></li>
+			<li><a href="{:U('Customer/customerdetail?id='.$cusid.'');}">Customers Detail</a><i class="icon-angle-right"></i></li>
+            <li><a href="#">Order Detail</a></li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row-fluid profile">
+<div class="span12">
+<!--BEGIN TABS-->
+<div class="tabbable tabbable-custom tabbable-full-width">
+<ul class="nav nav-tabs">
+    
+    <li class="active"><a href="#tab_1_1" data-toggle="tab">Order Detail</a></li>
+	<li><a href="#tab_1_2" data-toggle="tab">Edit Order</a></li>
+    <li><a href="#tab_1_3" data-toggle="tab">Add Order</a></li>
+</ul>
+<div class="tab-content">
+
+<!--end tab-pane-->
+<div class="tab-pane row-fluid active" id="tab_1_1">
+    <div class="span12">
+        <div class="portlet box yellow">
+            <div class="portlet-title">
+                <div class="caption"><i class="icon-coffee"></i>Order</div>
+                <div class="tools">
+                    
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="span12">
+                    <div class="span4">
+                        <h5><strong>OrderID :</strong>{$order.orderID}</h5>
+                        <h5><strong>Issue date :</strong>{$order.issuedate}</h5>
+                        <h5><strong>Status :</strong><span class="label label-info">{$order.status}</span></h5>
+                    </div>
+                    <div class="span4">
+                        <h5><strong>Refund :</strong>{$order.refund}</h5>
+                        <h5><strong>Refund Amount:</strong>{$order.refundamount}</h5>
+                        <if condition="$order.status eq 'pending'"> 
+                            <h5><strong>Due date :</strong>NULL</h5>
+                        <else />
+                            <h5><strong>Due date :</strong>{$order.invoicedate}</h5>
+                        </if>
+                    </div>
+                    <div class="span4">
+                        <h5><strong>Invoice date :</strong>{$order.invoicedate}</h5>
+                        <h5><strong>Transaction ID :</strong>{$trans.transactionID}</h5>
+                        <h5><strong>Amount :</strong>{$trans.settleamount} HK$</h5>
+                    </div>
+                </div>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td class="text-center"><strong>Item</strong></td>
+                            <td class="text-center"><strong>Price</strong></td>
+                            <td class="text-center"><strong>Years</strong></td>
+                            <td class="text-center"><strong>Totals</strong></td>
+                            <td class="text-center"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                        <foreach name="items" item="vo">
+                        <tr>
+                            <td class="text-center">{$vo.domainname}</td>
+                            <td class="text-center">{$vo.price} HK$</td>
+                            <td class="text-center">{$vo.years}</td>
+                            <td class="text-center"><?php echo $vo['years']*$vo['price']; ?> </td>
+                            <td class="text-center">
+                                <a class="btn yellow easy-pie-chart-reload" href="{:U('Order/customerdelitem?itemid='.$vo['id'].'&cusid='.$cusid.'&orderid='.$order['orderID'].'&oid='.$order['id'].'');}">Remove</a>
+                            </td>
+                        </tr>
+                        </foreach>
+                    </tbody>
+                </table>
+                <a href="{:U('Order/customerdelorder?cusid='.$cusid.'&orderid='.$order['orderID'].'');}" class="btn yellow easy-pie-chart-reload">Remove</a>
+            </div>
+        </div>      
+	</div>
+    
+</div>
+<!--tab_1_2-->
+<div class="tab-pane" id="tab_1_2">
+	<div style="height: auto;" id="accordion1-1" class="accordion collapse">
+        
+        
+    </div>
+</div>
+<!-- tab_1_3 -->
+<div class="tab-pane" id="tab_1_3">
+	<div class="row-fluid">	
+        <div class="span12">
+           
+        </div>
+        
+        
+        
+	</div>
+</div>
+
+<!-- tab_1_3 -->
+<!--end tab-pane-->
+
+<!--end tab-pane-->
+<div class="tab-pane row-fluid" id="tab_1_6">
+<div class="row-fluid">
+<div class="span12">
+<div class="span3">
+    <ul class="ver-inline-menu tabbable margin-bottom-10">
+        <li class="active">
+            <a data-toggle="tab" href="#tab_1">
+                <i class="icon-briefcase"></i>
+                General Questions
+            </a>
+            <span class="after"></span>
+        </li>
+        <li><a data-toggle="tab" href="#tab_2"><i class="icon-group"></i> Membership</a></li>
+        <li><a data-toggle="tab" href="#tab_3"><i class="icon-leaf"></i> Terms Of Service</a></li>
+        <li><a data-toggle="tab" href="#tab_1"><i class="icon-info-sign"></i> License Terms</a></li>
+        <li><a data-toggle="tab" href="#tab_2"><i class="icon-tint"></i> Payment Rules</a></li>
+        <li><a data-toggle="tab" href="#tab_3"><i class="icon-plus"></i> Other Questions</a></li>
+    </ul>
+</div>
+<div class="span9">
+
+</div>
+<!--end span9-->
+</div>
+</div>
+</div>
+<!--end tab-pane-->
+</div>
+</div>
+<!--END TABS-->
+</div>
+</div>
+<!-- END PAGE CONTENT-->
+</div>
+<!-- END PAGE CONTAINER-->
+</div>
+<!-- END PAGE -->
+</block>
+<block name="bottomjs">
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/bootstrap-fileupload.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/validator.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+
+        // initiate layout and plugins
+
+        App.init();
+
+    });
+        
+    </script>
+</block>

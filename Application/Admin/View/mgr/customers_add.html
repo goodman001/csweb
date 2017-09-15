@@ -1,0 +1,326 @@
+<extend name="public/back" />
+<block name="siderbarmenu">
+<div class="page-sidebar nav-collapse collapse">
+    <ul class="page-sidebar-menu">
+    <li>
+        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+        <div class="sidebar-toggler hidden-phone"></div>
+        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+    </li>
+    <li>
+        <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+        <form class="sidebar-search">
+            <div class="input-box">
+                <a href="javascript:;" class="remove"></a>
+                <input type="text" placeholder="Search..."/>
+                <input type="button" class="submit" value=" "/>
+            </div>
+        </form>
+        <!-- END RESPONSIVE QUICK SEARCH FORM -->
+    </li>
+    <li class="start">
+        <a href="{:U('Profile/index');}">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <span class="title">My Profile</span>
+            <span class="selected"></span>
+        </a>
+    </li>
+    <li class="active">
+        <a href="javascript:;">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            <span class="title">Customer Managerment</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="{:U('Customer/customerlist');}">
+                    Customers List
+                </a>
+            </li>
+            <li class="active">
+                <a href="{:U('Customer/customeradd');}">
+                    Add Customers</a>
+            </li>
+        </ul>
+    </li>
+     <li class="">
+        <a href="{:U('Order/orderlist');}">
+            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+            <span class="title">Order Managerment</span>
+            <span class="arrow "></span>
+        </a>
+    </li>
+    <li class="">
+        <a href="{:U('Transaction/translist');}">
+            <i class="fa fa-cogs" aria-hidden="true"></i>
+            <span class="title">Transaction Managerment</span>
+            <span class="arrow "></span>
+        </a>
+    </li>
+    <li >
+        <a href="{:U('Domain/domainlist');}">
+            <i class="fa fa-database" aria-hidden="true"></i>
+            <span class="title">Domains Managerment</span>
+            <span class="arrow "></span>
+        </a>
+    </li>
+    <li >
+        <a href="javascript:;">
+            <i class="fa fa-handshake-o" aria-hidden="true"></i>
+            <span class="title">Support</span>
+            <span class="arrow "></span>
+        </a>
+        <!--
+        <ul class="sub-menu">
+            <li>
+                <a href="{:U('Domain/domainlist');}">
+                    Domain List
+                </a>
+            </li>
+			<li>
+                <a href="{:U('Domain/premiumlist');}">
+                    Premium List
+                </a>
+            </li>
+        </ul>
+        -->
+    </li>
+    <li >
+        <a href="javascript:;">
+            <i class="fa fa-clipboard" aria-hidden="true"></i>
+            <span class="title">Report</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a> Monthly Active TLDs</a>
+            </li>
+			<li>
+                 <a> Active Accounts Per TLDs</a>
+            </li>
+            <li>
+                 <a> New Customer</a>
+            </li>
+            <li>
+                 <a> Monthly Transactions</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a class="active" href="javascript:;">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            <span class="title">Configuration</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="javascript:;">
+                    General
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{:U('Configure/general_web');}">Web Setting</a></li>
+                    <li><a href="{:U('Configure/general_language');}">Language</a></li>
+                    <li><a href="{:U('Configure/general_domain');}">Domains</a></li>
+                    <li><a href="{:U('Configure/general_mail');}">Mail</a></li>
+                    <li><a href="{:U('Configure/general_credit');}">Credit</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="{:U('Configure/security');}">
+                     Security
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Email Template
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    Administrators
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{:U('Configure/adminlist');}">Users Managerment</a></li>
+                    <li><a href="{:U('Configure/adminrolelist');}">Roles Managerment</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    Domain Price
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{:U('Configure/pricesetting');}">Price setting</a></li>
+                    <li><a href="{:U('Configure/pricetools');}">Tools Managerment</a></li>
+                    <li><a href="{:U('Configure/premiumlist');}">Premium Managerment</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    Payment
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{:U('Configure/paymentlist');}">Payment method</a></li>
+                    <li><a href="{:U('Configure/currencies');}">Currencies</a></li>
+                    <li><a href="{:U('Configure/taxrules');}">Tax Rules</a></li>
+                    <li><a href="{:U('Configure/promotion');}">Promotion</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="{:U('Configure/domainregistrar');}">
+                    <span class="title">Domain Registrar</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    </ul>
+</div>
+</block>
+<block name="container">
+<!-- BEGIN PAGE -->
+<div class="page-content">
+<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+<div id="portlet-config" class="modal hide">
+    <div class="modal-header">
+        <button data-dismiss="modal" class="close" type="button"></button>
+        <h3>portlet Settings</h3>
+    </div>
+    <div class="modal-body">
+        <p>Here will be a configuration form</p>
+    </div>
+</div>
+<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+<!-- BEGIN PAGE CONTAINER-->
+<div class="container-fluid">
+<!-- BEGIN PAGE HEADER-->
+<div class="row-fluid">
+    <div class="span12">
+        <h3 class="page-title">
+            Customer Managerment
+            <small> Customer Managerment</small>
+        </h3>
+        <ul class="breadcrumb">
+            <li>
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <a href="{:U('Profile/index');}">Home</a>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </li>
+            <li>
+                <a href="#">Customer Managerment</a>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </li>
+            <li><a href="{:U('Customer/customeradd');}">Customers Add</a></li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row-fluid">
+	<div style="height: auto;" id="accordion1-1" class="accordion collapse">
+        <form role="form" action="{:U('Customer/customernew');}" method="post">  
+			<label class="control-label">Username</label>
+            <input name="username" type="text" id="username" placeholder="user name" value="" class="m-wrap span8" required/>
+            <label class="control-label">First Name</label>
+            <input name="firstname" type="text" id="firstname" placeholder="first name" value="" class="m-wrap span8" required/>
+            <label class="control-label">Last Name</label>
+            <input name="lastname" type="text" id="lastname" placeholder="last name" value=""   class="m-wrap span8" required />
+            <label class="control-label">Company</label>
+            <input name="company" type="text" id="company" placeholder="Company" value="{$profiles.company}" class="m-wrap span8" />		
+			<label class="control-label">Job title</label>
+            <input type="text" name="jobtitle" type="text" id="jobtitle" placeholder="Job title" value="{$profiles.jobtitle}"  class="m-wrap span8" />
+			<label class="control-label">Email</label>
+            <input name="email" type="email" id="email" placeholder="Email" value="{$profiles.email}"  class="m-wrap span8" required/>
+			<label class="control-label">Password</label>
+			<input type="text" name="password" class="form-control"  placeholder="Password" value="{$profiles.password}" required>  
+			<label class="control-label">Address1</label>
+            <input name="address1" type="text" id="address1" placeholder="Address 1" value="{$profiles.address1}"  class="m-wrap span8" required/>	
+			<label class="control-label">Address2</label>
+            <input name="address2" type="text" id="address2" placeholder="Address 2" value="{$profiles.address2}"  class="m-wrap span8" />		
+			<label class="control-label">City</label>
+            <input name="city" type="text" id="city" placeholder="City" value="{$profiles.city}"  class="m-wrap span8" required/>
+			<label class="control-label">State</label>
+            <input name="state" type="text" id="state" placeholder="state" value="{$profiles.state}"  class="m-wrap span8" required/>
+			<label class="control-label">Postcode</label>
+            <input type="number" value="{$profiles.postcode}" name="postcode" id="postcode" placeholder="Postcode"  class="m-wrap span8" required> 
+			<label class="control-label">Country</label>
+			<input name="country" type="text" id="country" placeholder="Country" value="{$profiles.country}"  class="m-wrap span8" required/> 
+			<label class="control-label">Phone</label>
+			<input type="tel" value="{$profiles.phone}" name="phone" id="phone" placeholder="Phone"  class="m-wrap span8" required> 
+			<label class="control-label">Fax</label>
+			<input type="tel" value="{$profiles.fax}" name="fax" id="fax" placeholder="Fax"  class="m-wrap span8" > 
+			<label class="control-label">Overdue Notice</label>
+			<div class="control-group span12">
+                <div class="controls" style="margin-left:10px">
+                    <label class="radio" style="width:60px">
+                        <span><input type="radio" name="overdue" id="optionsRadios1" value="Enable" checked/>Enable</span>
+                    </label>
+                    <label class="radio" style="width:60px">
+                        <span><input type="radio" name="overdue" id="optionsRadios2" value="Disable" />Disable</span>
+                    </label>    
+                </div>
+            </div>
+			
+			<label class="control-label">Tax Exemption</label>
+			<div class="control-group span12">
+                <div class="controls" style="margin-left:10px">
+                    <label class="radio" style="width:60px">
+                        <span><input type="radio" name="taxexemption" id="optionsRadios3" value="No" checked/>No</span>
+                    </label>
+                    <label class="radio" style="width:60px">
+                        <span><input type="radio" name="taxexemption" id="optionsRadios4" value="Yes" />Yes</span>
+                    </label>    
+                </div>
+            </div>
+			<label class="control-label">Currency</label>
+			<select class="form-control" name="currency" required>
+				<option value="HKD">HKD</option>
+				<option value="USD" >USD</option> 
+				<option value="GBP">GBP</option>
+				<option value="CNY">CNY</option>
+			</select> 
+			<label class="control-label">Balance</label>
+            <input type="text" value="0.0" name="amount" id="amount" pattern="^[0-9]+([\.,]{0,1}[0-9]*)$" maxlength="15" minlength="1"   class="m-wrap span8" required>
+			<label class="control-label">Account Status</label>
+            <select class="form-control" name="status" required>
+				<option value="active">active</option>
+				<option value="pending" >pending</option> 
+				<option value="suspend">suspend</option>
+			</select>
+            <div class="submit-btn">
+                <button type="submit" class="btn green">Save Changes</button>
+                <a href="{:U('Customer/customerdetail?id='.$cusid.'');}" class="btn">Cancel</a>
+            </div>
+        </form>
+    </div>
+	
+	
+	
+	
+	
+</div>
+<!-- END PAGE CONTENT-->
+</div>
+<!-- END PAGE CONTAINER-->
+</div>
+<!-- END PAGE -->
+</block>
+<block name="bottomjs">
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/bootstrap-fileupload.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/validator.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+
+        // initiate layout and plugins
+
+        App.init();
+
+    });
+        
+    </script>
+</block>

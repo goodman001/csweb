@@ -1,0 +1,287 @@
+<extend name="public/back" />
+<block name="siderbarmenu">
+<div class="page-sidebar nav-collapse collapse">
+    <ul class="page-sidebar-menu">
+    <li>
+        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+        <div class="sidebar-toggler hidden-phone"></div>
+        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+    </li>
+    <li>
+        <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+        <form class="sidebar-search">
+            <div class="input-box">
+                <a href="javascript:;" class="remove"></a>
+                <input type="text" placeholder="Search..."/>
+                <input type="button" class="submit" value=" "/>
+            </div>
+        </form>
+        <!-- END RESPONSIVE QUICK SEARCH FORM -->
+    </li>
+    <li class="start">
+        <a href="{:U('Profile/index');}">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <span class="title">My Profile</span>
+            <span class="selected"></span>
+        </a>
+    </li>
+    <li class="">
+        <a href="javascript:;">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            <span class="title">Customer Managerment</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="{:U('Customer/customerlist');}">
+                    Customers List
+                </a>
+            </li>
+            <li>
+                <a href="{:U('Customer/customeradd');}">
+                    Add Customers</a>
+            </li>
+        </ul>
+    </li>
+     <li class="">
+        <a href="{:U('Order/orderlist');}">
+            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+            <span class="title">Order Managerment</span>
+            <span class="arrow "></span>
+        </a>
+    </li>
+    <li class="">
+        <a href="{:U('Transaction/translist');}">
+            <i class="fa fa-cogs" aria-hidden="true"></i>
+            <span class="title">Transaction Managerment</span>
+            <span class="arrow "></span>
+        </a>
+    </li>
+    <li >
+        <a href="{:U('Domain/domainlist');}">
+            <i class="fa fa-database" aria-hidden="true"></i>
+            <span class="title">Domains Managerment</span>
+            <span class="arrow "></span>
+        </a>
+    </li>
+    <li >
+        <a href="javascript:;">
+            <i class="fa fa-handshake-o" aria-hidden="true"></i>
+            <span class="title">Support</span>
+            <span class="arrow "></span>
+        </a>
+        <!--
+        <ul class="sub-menu">
+            <li>
+                <a href="{:U('Domain/domainlist');}">
+                    Domain List
+                </a>
+            </li>
+			<li>
+                <a href="{:U('Domain/premiumlist');}">
+                    Premium List
+                </a>
+            </li>
+        </ul>
+        -->
+    </li>
+    <li >
+        <a href="javascript:;">
+            <i class="fa fa-clipboard" aria-hidden="true"></i>
+            <span class="title">Report</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a> Monthly Active TLDs</a>
+            </li>
+			<li>
+                 <a> Active Accounts Per TLDs</a>
+            </li>
+            <li>
+                 <a> New Customer</a>
+            </li>
+            <li>
+                 <a> Monthly Transactions</a>
+            </li>
+        </ul>
+    </li>
+    <li class="active">
+        <a class="active" href="javascript:;">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            <span class="title">Configuration</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="javascript:;">
+                    General
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{:U('Configure/general_web');}">Web Setting</a></li>
+                    <li><a href="{:U('Configure/general_language');}">Language</a></li>
+                    <li><a href="{:U('Configure/general_domain');}">Domains</a></li>
+                    <li><a href="{:U('Configure/general_mail');}">Mail</a></li>
+                    <li><a href="{:U('Configure/general_credit');}">Credit</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="{:U('Configure/security');}">
+                     Security
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Email Template
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    Administrators
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{:U('Configure/adminlist');}">Users Managerment</a></li>
+                    <li><a href="{:U('Configure/adminrolelist');}">Roles Managerment</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    Domain Price
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{:U('Configure/pricesetting');}">Price setting</a></li>
+                    <li><a href="{:U('Configure/pricetools');}">Tools Managerment</a></li>
+                    <li><a href="{:U('Configure/premiumlist');}">Premium Managerment</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    Payment
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{:U('Configure/paymentlist');}">Payment method</a></li>
+                    <li><a href="{:U('Configure/currencies');}">Currencies</a></li>
+                    <li><a href="{:U('Configure/taxrules');}">Tax Rules</a></li>
+                    <li><a href="{:U('Configure/promotion');}">Promotion</a></li>
+                </ul>
+            </li>
+            <li class="active">
+                <a href="{:U('Configure/domainregistrar');}">
+                    <span class="title">Domain Registrar</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    </ul>
+</div>
+</block>
+<block name="container">
+<!-- BEGIN PAGE -->
+<div class="page-content">
+<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+<div id="portlet-config" class="modal hide">
+    <div class="modal-header">
+        <button data-dismiss="modal" class="close" type="button"></button>
+        <h3>portlet Settings</h3>
+    </div>
+    <div class="modal-body">
+        <p>Here will be a configuration form</p>
+    </div>
+</div>
+<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+<!-- BEGIN PAGE CONTAINER-->
+<div class="container-fluid">
+<!-- BEGIN PAGE HEADER-->
+<div class="row-fluid">
+    <div class="span12">
+        <h3 class="page-title">
+            Configuration
+            <small> Configuration</small>
+        </h3>
+        <ul class="breadcrumb">
+            <li>
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <a href="{:U('Profile/index');}"> Home</a>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </li>
+            <li>
+                <a href="#"> Configuration</a>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </li>
+            <li>
+                <a href="{:U('Configure/domainregistrar');}"> Domain Registrar</a>
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+            </li>
+			<li>
+                <a href="#"> Domain Registrar Edit</a>
+            </li>
+             
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row-fluid">
+    <div class="span12">
+    <div class="tabbable tabbable-custom tabbable-full-width">
+        <ul class="nav nav-tabs">   
+            <li class="active"><a href="#tab_1_1" data-toggle="tab">Registrar Edit</a></li>
+        </ul>
+        <div class="tab-content">
+        <!--end tab-pane-->
+        <!--tab_1_1-->
+        <div class="tab-pane row-fluid active" id="tab_1_1">
+            <div style="height: auto;" id="accordion1-1" class="accordion collapse">
+                <div class="span12">
+                    <h4><i class="fa fa-cog" aria-hidden="true"></i> Add new Registrar</h4>
+                        <form role="form" action="{:U('Configure/editregistrar');}" method="post">  
+                            <label class="control-label">Registrar Name</label>
+                            <input name="registrar" type="text" value="{$list.registrar}" placeholder="Registrar" class="m-wrap span8" readonly/>
+                            <label class="control-label">Status</label>
+                            <select class="m-wrap span8" name="status" required>
+                                <option value="Y">Y</option>
+                                <option value="N">N</option>
+                            </select>
+                            <div class="submit-btn">
+                                <button type="submit" class="btn green">Save Changes</button>
+                            </div>
+                        </form>
+
+                </div>       
+            </div>
+        </div>
+        <!--end tab-pane-->
+        <!--end tab-pane-->
+
+        <!--end tab-pane-->
+        </div>
+    </div>
+    </div>
+</div>
+<!-- END PAGE CONTENT-->
+</div>
+<!-- END PAGE CONTAINER-->
+</div>
+<!-- END PAGE -->
+</block>
+<block name="bottomjs">
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/bootstrap-fileupload.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/metronic/media/js/validator.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+
+        // initiate layout and plugins
+
+        App.init();
+
+    });
+        
+    </script>
+</block>
