@@ -56,10 +56,10 @@
             </li>
           <?php else: ?> 
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo U('Login/login');;?>"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+              <a class="nav-link" href="<?php echo U('Login/login');;?>"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo U('Login/register');;?>"><i class="fa fa-registered" aria-hidden="true"></i> Register </a>
+              <a class="nav-link" href="<?php echo U('Login/login');;?>"><i class="fa fa-registered" aria-hidden="true"></i> Register </a>
             </li><?php endif; ?>
         </ul>
       </div>
